@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: sans-serif;
+            background: #f4f4f4;
+            scroll-behavior: smooth;
+        }
+
+        section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .overlay-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 2em;
+            font-weight: bold;
+            text-shadow: 0 0 5px #000;
+            text-align: justify;
+        }
+
+        .dark img {
+            filter: brightness(70%);
+        }
+
+        .label {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .fade-in-text {
+            opacity: 0;
+            transition: opacity 1s ease-out;
+        }
+
+        .fade-in-text.visible {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <img src="Seeing_Her_In_A_Child.png" alt="Kanade 1">
+    </section>
+
+    <section class="dark">
+        <img src="A_Cup_For_You.png" alt="Kanade 2">
+        <div class="overlay-text fade-in-text">YOISAKI KANADE (ISTRI GWEH)</div>
+    </section>
+
+    <section class="dark">
+        <img src="The_Stranger_In_The_Mirror.png" alt="Kanade 3">
+        <div class="overlay-text">
+            <p>
+                Yoisaki Kanade (宵よい崎さき 奏かなで) is a third-year student taking online classes. She is the leader and
+                composer of the online music circle 25-ji, Nightcord de., going by the alias "K".
+                Though antisocial, Kanade is extremely kind and caring to those close to her(Wife Materials). She often
+                puts the needs
+                of others before herself, overworking herself for the sake of her music. Kanade's entire life is
+                dedicated to composing, often putting off sleep, eating, and going outside to focus on writing
+                musicsomeone has to be around to look after her(which is me).
+            </p>
+        </div>
+    </section>
+
+
+    <script>
+        const fadeElements = document.querySelectorAll('.fade-in-text');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+
+        fadeElements.forEach(el => observer.observe(el));
+    </script>
+
+</body>
+
+</html>
