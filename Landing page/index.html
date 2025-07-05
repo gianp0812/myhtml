@@ -76,27 +76,54 @@
     </section>
 
     <section class="dark">
-        <img src="A_Cup_For_You.png" alt="Kanade 2">
-        <div class="overlay-text fade-in-text">YOISAKI KANADE (ISTRI GWEH)</div>
-    </section>
-
-    <section class="dark">
         <img src="The_Stranger_In_The_Mirror.png" alt="Kanade 3">
-        <div class="overlay-text">
+
+        <div class="overlay-text" id="kanade-text" style="display: none;">
             <p>
                 Yoisaki Kanade (宵よい崎さき 奏かなで) is a third-year student taking online classes. She is the leader and
                 composer of the online music circle 25-ji, Nightcord de., going by the alias "K".
-                Though antisocial, Kanade is extremely kind and caring to those close to her(Wife Materials). She often
-                puts the needs
-                of others before herself, overworking herself for the sake of her music. Kanade's entire life is
+                Though antisocial, Kanade is extremely kind and caring to those close to her (Wife Materials). She often
+                puts the needs of others before herself, overworking herself for the sake of her music. Kanade's entire
+                life is
                 dedicated to composing, often putting off sleep, eating, and going outside to focus on writing
-                musicsomeone has to be around to look after her(which is me).
+                music—someone has to be around to look after her (which is me).
             </p>
         </div>
+
+        <!-- Tombol Tampil/Sembunyi -->
+        <button onclick="toggleText()" style="
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 10px 20px;
+        font-size: 1em;
+        background-color: rgba(0,0,0,0.6);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+    ">
+            Show Text
+        </button>
     </section>
 
 
+
     <script>
+        const textElement = document.getElementById('kanade-text');
+        const toggleButton = document.querySelector('button');
+
+        function toggleText() {
+            if (textElement.style.display === 'none') {
+                textElement.style.display = 'block';
+                toggleButton.textContent = 'Hide Text';
+            } else {
+                textElement.style.display = 'none';
+                toggleButton.textContent = 'Show Text';
+            }
+        }
+
         const fadeElements = document.querySelectorAll('.fade-in-text');
 
         const observer = new IntersectionObserver(entries => {
